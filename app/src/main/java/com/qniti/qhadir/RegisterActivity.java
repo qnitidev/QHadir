@@ -57,8 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (buttonView.isChecked()) {
 
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(RegisterActivity.this);
-                    alertDialogBuilder.setMessage(Html.fromHtml("The collection of your details is required under the Prevention and Control of Infectious Diseases Act 1988 [Act 342] and it is hereby compulsory.<br><br>" +
-                            "Email information is required for login purposes and it is unique to each person registered with this application. This information will not be used for marketing and product promotion purposes.<br><br>" +
+                    alertDialogBuilder.setMessage(Html.fromHtml("Email information is required for login purposes and it is unique to each person registered with this application. This information will not be used for marketing and product promotion purposes.<br><br>" +
                             "Failure to provide such information, we may not be able to offer our services to you."));
                     final Dialog dialog = new Dialog(RegisterActivity.this);
 
