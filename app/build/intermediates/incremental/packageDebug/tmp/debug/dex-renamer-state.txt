@@ -1,0 +1,10 @@
+#Wed Oct 26 10:14:08 SGT 2022
+path.2=14/classes.dex
+path.1=0/classes.dex
+path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.2=C\:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
+base.1=C\:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.0=C\:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex

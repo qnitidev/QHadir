@@ -1,0 +1,2 @@
+rootProject.name='QHadir'
+include ':app'
