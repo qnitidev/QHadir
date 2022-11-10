@@ -280,6 +280,10 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\raw\\checkout.mp3"
     },
     {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\release\\layout_qr_popup.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\layout\\qr_popup.xml"
+    },
+    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\release\\drawable_ic_transaction.xml.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_transaction.xml"
     },

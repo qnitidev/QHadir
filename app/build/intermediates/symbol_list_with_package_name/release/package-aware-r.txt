@@ -1418,6 +1418,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id showqrimage
 id skip
 id smallLabel
 id snackbar_action
@@ -1466,6 +1467,7 @@ id titleDividerNoCustom
 id title_template
 id top
 id topPanel
+id toqrBtn
 id touch_outside
 id transition_current_scene
 id transition_layout_save
@@ -1584,6 +1586,7 @@ layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout past_visited_list
+layout qr_popup
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

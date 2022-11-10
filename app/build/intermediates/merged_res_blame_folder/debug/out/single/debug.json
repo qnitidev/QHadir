@@ -140,12 +140,12 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\buttoncornerblack.xml"
     },
     {
-        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_buttoncornerblue.xml.flat",
-        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\buttoncornerblue.xml"
-    },
-    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_new_file.xml.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_new_file.xml"
+    },
+    {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_buttoncornerblue.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\buttoncornerblue.xml"
     },
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_gradientbottomnavi.xml.flat",
@@ -372,12 +372,12 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-xxxhdpi\\confirmpage.png"
     },
     {
-        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\font_sofiamediumpro.ttf.flat",
-        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\font\\sofiamediumpro.ttf"
-    },
-    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_adaptive_back.png.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_adaptive_back.png"
+    },
+    {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\font_sofiamediumpro.ttf.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\font\\sofiamediumpro.ttf"
     },
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_bg3.png.flat",
@@ -408,6 +408,10 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\layoutcornerpurple.xml"
     },
     {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\layout_qr_popup.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\layout\\qr_popup.xml"
+    },
+    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_exit.xml.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_exit.xml"
     },
@@ -428,16 +432,16 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\layout\\past_visited_list.xml"
     },
     {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_adaptive_fore.png.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_adaptive_fore.png"
+    },
+    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_noringlogo.png.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\noringlogo.png"
     },
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_buy.png.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\buy.png"
-    },
-    {
-        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_adaptive_fore.png.flat",
-        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_adaptive_fore.png"
     },
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layoutcornerwhite.xml.flat",
@@ -468,12 +472,12 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-xxxhdpi\\staffnew2.png"
     },
     {
-        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_employee.xml.flat",
-        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_employee.xml"
-    },
-    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rating_background.xml.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\rating_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_employee.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_employee.xml"
     },
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_feedback.png.flat",

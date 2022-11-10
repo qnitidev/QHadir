@@ -9,10 +9,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +30,11 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +45,7 @@ public class Profile extends AppCompatActivity {
     TextView showname;
     EditText chgphone,chgemail,chgaddr;
     Button logout,toChgPass,editProfile;
+    ImageButton toQR;
 
 
     @Override
@@ -56,11 +67,51 @@ public class Profile extends AppCompatActivity {
         logout = findViewById(R.id.logoutBtn);
         toChgPass = findViewById(R.id.chgpassBtn);
         editProfile = findViewById(R.id.saveBtn);
+        toQR = findViewById(R.id.toqrBtn);
 
         showname.setText(name);
         chgphone.setText(phone);
         chgemail.setText(email);
         //chgaddr.setText(address);
+
+        toQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Profile.this);
+                builder.setTitle("Qhadir ID QR CODE");
+                builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                LayoutInflater inflater = getLayoutInflater();
+                View dialogLayout = inflater.inflate(R.layout.qr_popup, null);
+                ImageView qrshow= dialogLayout.findViewById(R.id.showqrimage);
+                dialog.setView(dialogLayout);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+
+                MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+
+
+                try {
+                    BitMatrix bitMatrix = multiFormatWriter.encode(userID, BarcodeFormat.QR_CODE,600,600);
+                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                    qrshow.setImageBitmap(bitmap);
+                } catch (
+                        WriterException e) {
+                    e.printStackTrace();
+                }
+
+                dialog.show();
+
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
