@@ -44,12 +44,12 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_groceries.xml"
     },
     {
-        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_user.xml.flat",
-        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_user.xml"
-    },
-    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_adaptive_back.png.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_adaptive_back.png"
+    },
+    {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_user.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_user.xml"
     },
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_eventsbtn.png.flat",
@@ -150,6 +150,10 @@
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_gradientbottomnavi.xml.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\gradientbottomnavi.xml"
+    },
+    {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_roundedpink.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\roundedpink.xml"
     },
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_adaptergreenstroke.xml.flat",
@@ -468,6 +472,10 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_tick_grad.xml"
     },
     {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_buttoncornerbluefont.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\buttoncornerbluefont.xml"
+    },
+    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_staffnew2.png.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-xxxhdpi\\staffnew2.png"
     },
@@ -488,8 +496,16 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\layoutcornergrey.xml"
     },
     {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\layout_past_visited_list_backup.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\layout\\past_visited_list_backup.xml"
+    },
+    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_menubutton.png.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-xxxhdpi\\menubutton.png"
+    },
+    {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_adaptergreystrokewhite.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\adaptergreystrokewhite.xml"
     },
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
@@ -592,6 +608,10 @@
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-xxxhdpi\\web.png"
     },
     {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_no_data.jpg.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-xxxhdpi\\no_data.jpg"
+    },
+    {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_no_feedback.xml.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\ic_no_feedback.xml"
     },
@@ -626,5 +646,9 @@
     {
         "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_close.png.flat",
         "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\mipmap-xxxhdpi\\close.png"
+    },
+    {
+        "merged": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\build\\intermediates\\res\\merged\\debug\\drawable_roundedyellow.xml.flat",
+        "source": "C:\\Users\\Bie\\StudioProjects\\QHadir\\app\\src\\main\\res\\drawable\\roundedyellow.xml"
     }
 ]

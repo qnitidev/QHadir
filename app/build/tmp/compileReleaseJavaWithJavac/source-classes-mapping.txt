@@ -74,6 +74,8 @@ com/qniti/qhadir/PastVisited.java
  com.qniti.qhadir.PastVisited
  com.qniti.qhadir.PastVisited$1
  com.qniti.qhadir.PastVisited$2
+ com.qniti.qhadir.PastVisited$3
+ com.qniti.qhadir.PastVisited$4
 com/qniti/qhadir/RegisterActivity.java
  com.qniti.qhadir.RegisterActivity
  com.qniti.qhadir.RegisterActivity$1

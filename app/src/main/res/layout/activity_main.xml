@@ -78,7 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Visiting History"
+                    android:text="Clock-In History"
                     android:textAlignment="center"
                     android:textSize="14dp"
                     android:textStyle="bold" />

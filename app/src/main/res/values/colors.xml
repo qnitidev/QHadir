@@ -23,6 +23,22 @@
     <color name="colorLightBlue">#26D0CE</color>
     <color name="colorDeepBlue">#1A2980</color>
     <color name="colorLightGreen">#33cc00</color>
+    <color name="colorDarkGrey">#8d8c8c</color>
+    <color name="colorLightGrey">#eeeeee</color>
+    <color name="colorDarkGreen">#445c3c</color>
+    <color name="colorDarkYellow">#ff9f1c</color>
+    <color name="colorOpaqueYellow">#26ff9f1c</color>
+    <color name="colorSalmon">#ffb685</color>
+    <color name="colorBgLight">#494D50</color>
+    <color name="colorBgRegular">#8D8C8C</color>
+    <color name="colorBanciBg">#F1F2F6</color>
+    <color name="default_bg">#F8F8F8</color>
+    <color name="label_grey">#708090</color>
+    <color name="body_grey">#384149</color>
+    <color name="font_blue">#378694</color>
+    <color name="placeholder">#B8C0C8</color>
+    <color name="color1">#50A9B9</color>
+    <color name="color2">#3C74BD</color>
 
 
 

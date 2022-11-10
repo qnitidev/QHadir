@@ -3,6 +3,7 @@ package com.qniti.qhadir;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -37,6 +38,8 @@ public class PastVisited extends AppCompatActivity implements PastVisitedAdapter
     TextView txtGone,txtJobOff;
     List<Log> logList;
     String userID;
+    SwipeRefreshLayout refreshLayout;
+    SwipeRefreshLayout refreshLayout2;
 
     //the recyclerview
     RecyclerView recyclerView;
@@ -45,8 +48,8 @@ public class PastVisited extends AppCompatActivity implements PastVisitedAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_visited);
         recyclerView = findViewById(R.id.recylcerView);
-        imgGone = findViewById(R.id.imageViewGone);
-        txtGone = findViewById(R.id.textViewGone);
+       // imgGone = findViewById(R.id.imageViewGone);
+      //  txtGone = findViewById(R.id.textViewGone);
 
         SharedPreferences sharedPreferences = getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         userID = sharedPreferences.getString(Config.USER_ID2, "Not Available");
@@ -63,6 +66,34 @@ public class PastVisited extends AppCompatActivity implements PastVisitedAdapter
         logList = new ArrayList<>();
 
         loadLog();
+
+        refreshLayout = findViewById(R.id.refresh_layout);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                logList.clear();
+
+                loadLog();
+
+                refreshLayout.setRefreshing(false);
+
+            }
+        });
+
+        refreshLayout2 = findViewById(R.id.refresh_layout_2);
+        refreshLayout2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                logList.clear();
+
+                loadLog();
+
+                refreshLayout2.setRefreshing(false);
+
+            }
+        });
 
     }
 
@@ -102,12 +133,13 @@ public class PastVisited extends AppCompatActivity implements PastVisitedAdapter
                             adapter.setOnClick(PastVisited.this);
 
                             if (adapter.getItemCount() == 0) {
-                                imgGone.setVisibility(View.VISIBLE);
-                                txtGone.setVisibility(View.VISIBLE);
-                            } else {
+                                refreshLayout2.setVisibility(View.VISIBLE);
+                                refreshLayout.setVisibility(View.GONE);
 
-                                imgGone.setVisibility(View.GONE);
-                                txtGone.setVisibility(View.GONE);
+                            } else{
+                                refreshLayout2.setVisibility(View.GONE);
+                                refreshLayout.setVisibility(View.VISIBLE);
+
                             }
 
                             //add shared preference ID,nama,credit here

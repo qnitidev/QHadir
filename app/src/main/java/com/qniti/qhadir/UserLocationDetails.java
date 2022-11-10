@@ -451,9 +451,9 @@ public class UserLocationDetails extends AppCompatActivity {
                                 placeAddress = user.getString("placeaddr");
                             }
 
-                            placenametxt.setText("Name   : "+placeName);
-                            placephonetxt.setText("Phone   : "+placePhone);
-                            placeaddresstxt.setText("Address: "+placeAddress);
+                            placenametxt.setText(placeName);
+                            placephonetxt.setText(placePhone);
+                            placeaddresstxt.setText(placeAddress);
 
                             loading.dismiss();
                         } catch (JSONException e) {
