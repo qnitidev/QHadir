@@ -65,6 +65,24 @@ public class MainActivity extends AppCompatActivity {
         currTime = Calendar.getInstance();
         sdf = new SimpleDateFormat("hh:mm:ss a");
         currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+
+
+        try {
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, requestCode);
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 /*
         if(EasyPermissions.hasPermissions(MainActivity.this, Manifest.permission.ACCESS_NOTIFICATION_POLICY)){
 

@@ -296,13 +296,32 @@
                         android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="EMAIL"
+                        android:text="ADDRESS"
                         android:textColor="@color/label_grey"
                         android:textSize="@dimen/xstext" />
 
                     <TextView
 
                         android:id="@+id/placeaddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textColor="@color/body_grey"
+                        android:layout_marginTop="5dp"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:fontFamily="@font/sofiamediumpro"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="LATITUTE / LONGITUTE"
+                        android:textColor="@color/label_grey"
+                        android:textSize="@dimen/xstext" />
+
+                    <TextView
+
+                        android:id="@+id/placelatlong"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Email"

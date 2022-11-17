@@ -1416,6 +1416,7 @@ id phoneNumtxt
 id pin
 id placeName
 id placeaddress
+id placelatlong
 id placephone
 id profile
 id progress_circular

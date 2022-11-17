@@ -1,6 +1,8 @@
 package com.qniti.qhadir;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,9 +11,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -41,16 +46,20 @@ import java.util.Map;
 
 public class UserLocationDetails extends AppCompatActivity {
 
-    String userID,name,phone,email,logid,enterDate,enterTime,exitDate,exitTime,logStatus,placeID,placeName,placePhone,placeAddress;
-    TextView nametxt,phonetxt,emailtxt,logidtxt,enterdatetime,exitdatetime,logstatustxt,placenametxt,placephonetxt,placeaddresstxt;
-    Button enter,exit;
+    String userID, name, phone, email, logid, enterDate, enterTime, exitDate, exitTime, logStatus, placeID, placeName, placePhone, placeAddress;
+    TextView nametxt, phonetxt, emailtxt, logidtxt, enterdatetime, exitdatetime, logstatustxt, placenametxt, placephonetxt, placeaddresstxt, placelatlongtxt;
+    Button enter, exit;
     String curTime;
     SimpleDateFormat sdf;
     Calendar currTime;
     String currentDate;
     MediaPlayer mediaPlayer;
     ImageView tick;
+    Double placeLat;
+    Double placeLong;
+    Double radiusInMeters;
 
+    private GpsTracker gpsTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +80,7 @@ public class UserLocationDetails extends AppCompatActivity {
         placenametxt = findViewById(R.id.placeName);
         placephonetxt = findViewById(R.id.placephone);
         placeaddresstxt = findViewById(R.id.placeaddress);
+        placelatlongtxt = findViewById(R.id.placelatlong);
         enter = findViewById(R.id.enterBtn);
         exit = findViewById(R.id.exitBtn);
         tick = findViewById(R.id.tick);
@@ -78,7 +88,7 @@ public class UserLocationDetails extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         userID = sharedPreferences.getString(Config.USER_ID2, "0");
         name = sharedPreferences.getString(Config.NAME_ID2, "0");
-        phone= sharedPreferences.getString(Config.PHONE_ID2, "0");
+        phone = sharedPreferences.getString(Config.PHONE_ID2, "0");
         email = sharedPreferences.getString(Config.EMAIL_ID2, "0");
         logid = sharedPreferences.getString(Config.LOG_ID2, "New Entry");
         enterDate = sharedPreferences.getString(Config.SCAN_DATE, "0");
@@ -92,30 +102,34 @@ public class UserLocationDetails extends AppCompatActivity {
         phonetxt.setText(phone);
         emailtxt.setText(email);
         logidtxt.setText(logid);
-        enterdatetime.setText(enterDate+" "+enterTime);
-        exitdatetime.setText(exitDate+" "+exitTime);
+        enterdatetime.setText(enterDate + " " + enterTime);
+        exitdatetime.setText(exitDate + " " + exitTime);
         logstatustxt.setText(logStatus);
+
 
         //Toast.makeText(UserLocationDetails.this,placeID,Toast.LENGTH_LONG).show();
 
-        if("Not Exist".equalsIgnoreCase(logStatus)){
+        if ("Not Exist".equalsIgnoreCase(logStatus)) {
 
 
-        }else if ("New".equalsIgnoreCase(logStatus)){
+        } else if ("New".equalsIgnoreCase(logStatus)) {
+
+            // getLocation();
+
             loadPlaces();
             exit.setVisibility(View.GONE);
             enter.setVisibility(View.GONE);
             tick.setVisibility(View.GONE);
             logstatustxt.setTextColor(getResources().getColor(R.color.colorDeepBlue));
-            enterPlaces();
+            //  enterPlaces();
 
-        }else if ("Inside".equalsIgnoreCase(logStatus)){
+        } else if ("Inside".equalsIgnoreCase(logStatus)) {
             enter.setVisibility(View.GONE);
             exit.setVisibility(View.VISIBLE);
             tick.setVisibility(View.VISIBLE);
             logstatustxt.setTextColor(getResources().getColor(R.color.colorLightGreen));
             loadPlaces();
-        }else{
+        } else {
             enter.setVisibility(View.GONE);
             exit.setVisibility(View.GONE);
             tick.setVisibility(View.GONE);
@@ -123,9 +137,9 @@ public class UserLocationDetails extends AppCompatActivity {
             loadPlaces();
         }
 
-       // enter.setOnClickListener(new View.OnClickListener() {
-           // @Override
-           // public void onClick(View v) {
+        // enter.setOnClickListener(new View.OnClickListener() {
+        // @Override
+        // public void onClick(View v) {
 
                /* AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(UserLocationDetails.this);
                 alertDialogBuilder.setTitle("Confirmation");
@@ -252,7 +266,7 @@ public class UserLocationDetails extends AppCompatActivity {
 
                         startActivityForResult(
                                 new Intent(Settings.ACTION_DATE_SETTINGS), 0);
-                    }else {
+                    } else {
 
                         curTime = sdf.format(currTime.getTime());
 
@@ -354,23 +368,25 @@ public class UserLocationDetails extends AppCompatActivity {
                         AlertDialog alertDialog = alertDialogBuilder.create();
                         alertDialog.show();
                     }
-            } catch (Settings.SettingNotFoundException e) {
+                } catch (Settings.SettingNotFoundException e) {
                     e.printStackTrace();
-                }}
-            });
+                }
+            }
+        });
     }
-    public void enterPlaces(){
 
-        final ProgressDialog loading = ProgressDialog.show(UserLocationDetails.this,"Please Wait","Contacting Server",false,false);
+    public void enterPlaces(Double lati, Double longi) {
+
+        final ProgressDialog loading = ProgressDialog.show(UserLocationDetails.this, "Please Wait", "Contacting Server", false, false);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                Config.URL_API+"enterlog.php", new Response.Listener<String>() {
+                Config.URL_API + "enterlog.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 loading.dismiss();
 
-                if(response.contains("Success")){
+                if (response.contains("Success")) {
 
                     mediaPlayer = MediaPlayer.create(UserLocationDetails.this, R.raw.checkin);
                     mediaPlayer.start();
@@ -383,8 +399,7 @@ public class UserLocationDetails extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
-                }
-                else if(response.contains("Exist")) {
+                } else if (response.contains("Exist")) {
 
                     Toast.makeText(UserLocationDetails.this, "Sorry. You already enter the area.Please scan leave before entering again", Toast.LENGTH_LONG)
                             .show();
@@ -395,10 +410,9 @@ public class UserLocationDetails extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 loading.dismiss();
                 if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                    Toast.makeText(UserLocationDetails.this,"No internet . Please check your connection",
+                    Toast.makeText(UserLocationDetails.this, "No internet . Please check your connection",
                             Toast.LENGTH_LONG).show();
-                }
-                else{
+                } else {
 
                     Toast.makeText(UserLocationDetails.this, error.toString(), Toast.LENGTH_LONG).show();
                 }
@@ -411,6 +425,8 @@ public class UserLocationDetails extends AppCompatActivity {
                 params.put("placeID", placeID);
                 params.put("enterDate", enterDate);
                 params.put("enterTime", enterTime);
+                params.put("enterLat", String.valueOf(lati));
+                params.put("enterLong", String.valueOf(longi));
                 return params;
             }
 
@@ -427,11 +443,11 @@ public class UserLocationDetails extends AppCompatActivity {
     }
 
 
-    public void loadPlaces(){
+    public void loadPlaces() {
 
-        final ProgressDialog loading = ProgressDialog.show(this,"Please Wait","Contacting Server",false,false);
+        final ProgressDialog loading = ProgressDialog.show(this, "Please Wait", "Contacting Server", false, false);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Config.URL_API+"loadplace.php?placeID="+placeID,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Config.URL_API + "loadplace.php?placeID=" + placeID,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -449,11 +465,20 @@ public class UserLocationDetails extends AppCompatActivity {
                                 placeName = user.getString("placename");
                                 placePhone = user.getString("placephone");
                                 placeAddress = user.getString("placeaddr");
+                                placeLat = user.getDouble("placelat");
+                                placeLong = user.getDouble("placelong");
+                                radiusInMeters = user.getDouble("radiusInMeter");
                             }
 
                             placenametxt.setText(placeName);
                             placephonetxt.setText(placePhone);
                             placeaddresstxt.setText(placeAddress);
+                            placelatlongtxt.setText(placeLat + " , " + placeLong);
+
+                            if ("New".equalsIgnoreCase(logStatus)) {
+
+                                getLocation();
+                            }
 
                             loading.dismiss();
                         } catch (JSONException e) {
@@ -466,10 +491,9 @@ public class UserLocationDetails extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         loading.dismiss();
                         if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                            Toast.makeText(UserLocationDetails.this,"No internet . Please check your connection",
+                            Toast.makeText(UserLocationDetails.this, "No internet . Please check your connection",
                                     Toast.LENGTH_LONG).show();
-                        }
-                        else{
+                        } else {
 
                             Toast.makeText(UserLocationDetails.this, error.toString(), Toast.LENGTH_LONG).show();
                         }
@@ -483,10 +507,116 @@ public class UserLocationDetails extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
     public void onBackPressed() {
         Intent i = new Intent(UserLocationDetails.this, PastVisited.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
+    }
+
+    public void getLocation() {
+
+        try {
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        gpsTracker = new GpsTracker(UserLocationDetails.this);
+        if (gpsTracker.canGetLocation()) {
+            double latitude = gpsTracker.getLatitude();
+            double longitude = gpsTracker.getLongitude();
+
+            if (!(0.0 == placeLat) || !(0.0 == placeLong)) {
+
+                float[] distance = new float[1];
+                Location.distanceBetween(placeLat, placeLong,
+                        latitude, longitude, distance);
+
+                //  double radiusInMeters = 100.0; //IN METER
+
+                if (distance[0] > radiusInMeters) {
+
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(UserLocationDetails.this);
+
+                    if (distance[0] <= 1000){
+
+                        alertDialogBuilder.setMessage(Html.fromHtml("<b>You are OUTSIDE of the detection area</b><br><br> " +
+                                "Distance from detection area: " + String.format(Locale.US, "%.2f", +distance[0]) + " meter " +
+                                "<br><br>" +
+                                "<b>Please be in the area and scan the QR again</b><br>"));
+
+
+                    }else{
+
+                        alertDialogBuilder.setMessage(Html.fromHtml("<b>You are OUTSIDE of the detection area</b><br><br> " +
+                                "Distance from detection area: " + String.format(Locale.US, "%.2f", + (distance[0]/1000))+ " kilometer " +
+                                "<br><br>" +
+                                "<b>Please be in the area and scan the QR again</b><br>"));
+
+                    }
+
+
+
+                    final Dialog dialog = new Dialog(UserLocationDetails.this);
+
+
+                    alertDialogBuilder.setPositiveButton("I Understand",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface arg0, int arg1) {
+
+                                    dialog.cancel();
+
+                                    Intent i = new Intent(UserLocationDetails.this, MainActivity.class);
+                                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(i);
+                                    finish();
+
+                                }
+
+                            });
+
+
+                    alertDialogBuilder.setOnCancelListener(
+                            new DialogInterface.OnCancelListener() {
+                                @Override
+                                public void onCancel(DialogInterface dialog) {
+                                    dialog.cancel();
+                                }
+                            }
+                    );
+
+                    //Showing the alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.setCanceledOnTouchOutside(false);
+                    alertDialog.setCancelable(false);
+                    alertDialog.show();
+
+
+                } else {
+                    Toast.makeText(getBaseContext(),
+                            "Inside, distance from center: " + String.format(Locale.US, "%.2f", +distance[0]) + "meter (Radius: " + radiusInMeters + ")",
+                            Toast.LENGTH_LONG).show();
+
+                    enterPlaces(latitude, longitude);
+                }
+
+            } else {
+
+                Toast.makeText(UserLocationDetails.this, "COORDINATE DID NOT EXIST. CONTACT SUPERVISOR",
+                        Toast.LENGTH_LONG).show();
+            }
+
+
+            // Toast.makeText(UserLocationDetails.this, "LAT:" + String.valueOf(latitude) + " , LONG:" + String.valueOf(longitude),
+            //        Toast.LENGTH_LONG).show();
+
+        } else {
+            gpsTracker.showSettingsAlert();
+        }
     }
 }

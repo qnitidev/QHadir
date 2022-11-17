@@ -34,6 +34,10 @@ com/qniti/qhadir/Config.java
  com.qniti.qhadir.Config
 com/qniti/qhadir/CustomFontApp.java
  com.qniti.qhadir.CustomFontApp
+com/qniti/qhadir/GpsTracker.java
+ com.qniti.qhadir.GpsTracker
+ com.qniti.qhadir.GpsTracker$1
+ com.qniti.qhadir.GpsTracker$2
 com/qniti/qhadir/Profile.java
  com.qniti.qhadir.Profile
  com.qniti.qhadir.Profile$1
@@ -91,6 +95,8 @@ com/qniti/qhadir/UserLocationDetails.java
  com.qniti.qhadir.UserLocationDetails$4
  com.qniti.qhadir.UserLocationDetails$5
  com.qniti.qhadir.UserLocationDetails$6
+ com.qniti.qhadir.UserLocationDetails$7
+ com.qniti.qhadir.UserLocationDetails$8
 com/qniti/qhadir/PastVisited.java
  com.qniti.qhadir.PastVisited
  com.qniti.qhadir.PastVisited$1

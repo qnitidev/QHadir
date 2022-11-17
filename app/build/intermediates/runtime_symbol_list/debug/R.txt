@@ -1415,6 +1415,7 @@ int id phoneNumtxt 0x7f0900c1
 int id pin 0x7f0900c2
 int id placeName 0x7f0900c3
 int id placeaddress 0x7f0900c4
+int id placelatlong 0x7f09013f
 int id placephone 0x7f0900c5
 int id profile 0x7f0900c6
 int id progress_circular 0x7f0900c7
